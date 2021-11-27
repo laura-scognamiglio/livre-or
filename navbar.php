@@ -12,9 +12,11 @@
         <nav class= "navbar">
             <form action="index.php" method="post" >
             <ul class="navul">
-                <li class="navli"><a href="index.php">Accuei/</a></li>
+                <li class="navli"><a href="index.php">Accueil</a></li>
                 <li class="navli"><a href="inscription.php">Inscription</a></li>
                 <li class="navli"><a href="connexion.php">Connexion</a></li>
+                <li class="navli"><a href="commentaire.php">Commentaire</a></li>
+                <li class="navli"><a href="livre-or.php">livre d'or</a></li>
                 <li class="navli"><a href="https://github.com/laura-scognamiglio/livre-or" target="_blank">git</a></li>
               
                 
