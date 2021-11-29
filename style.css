@@ -1,0 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style: none;
+    
+}
+
+@font-face{
+    font-family: "Wagon-Bold" ;
+    src: url(assets/Wagon-Bold.otf) format('opentype');
+}
+
+.profilBody, .conBody, .indexBody, .insBody, .livrOrBody, .profilBody{
+    scroll-behavior: smooth;
+    background-color: #fa341a;
+}
+
+.navul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+  }
+  
+  .navli {
+    float: left;
+  }
+
+  .navbar li a {
+    display: block;
+    color: #353E28;
+    font-family: "neuneu";
+    font-size:15px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}

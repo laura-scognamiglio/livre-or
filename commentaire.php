@@ -8,6 +8,10 @@ $sessLogin = $_SESSION['user'][0]['login'];
 
 
 if(isset($_POST['valider'])){
+    $login = htmlspecialchars(trim($_POST['login']));
+    $password = htmlspecialchars(trim($_POST['password']));
+    $passwordconfirm = htmlspecialchars(trim($_POST['passwordconfirm']));
+    $mssg = "";
 
     $sessId = $_SESSION['user'][0]['id'];
     $coment = htmlentities($_POST['com']);
@@ -18,7 +22,7 @@ if(isset($_POST['valider'])){
     echo '</pre>'; 
    
     $addCom = mysqli_query($bdd, "INSERT INTO `commentaires`( `commentaire`, `id_utilisateurs`, `date`) VALUES ('$coment','$sessId','$date')");
-   
+    
     echo '<pre>';
     var_dump($sessId);
     echo '</pre>';

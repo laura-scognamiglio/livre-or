@@ -12,6 +12,10 @@ if(isset($login)
 && isset($password) 
 && !empty($password))
 {
+    $login = htmlspecialchars(trim($_POST['login']));
+    $password = htmlspecialchars(trim($_POST['password']));
+    $passwordconfirm = htmlspecialchars(trim($_POST['passwordconfirm']));
+    $mssg = "";
     
     $requete_log = mysqli_query($bdd, "SELECT `login` FROM `utilisateurs` WHERE `login` = '$login'");
     $requete_fetch = mysqli_fetch_all($requete_log, MYSQLI_ASSOC);
@@ -27,6 +31,7 @@ if(isset($login)
     elseif($password == $passwordconfirm){
         $hashed_pwrd = password_hash($password, PASSWORD_DEFAULT);
         $add_user = mysqli_query($bdd, "INSERT INTO `utilisateurs`(login, password) VALUES ('$login','$hashed_pwrd')");
+        header('Location:connexion.php');
     }
     
 } 

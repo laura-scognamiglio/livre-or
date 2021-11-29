@@ -8,6 +8,11 @@ $afficheCom2 = mysqli_query($bdd,"SELECT utilisateurs.login, commentaires.* FROM
 $afficheCom = mysqli_query($bdd,"SELECT * FROM `commentaires` ORDER BY `date` DESC");
 
 if(isset($_POST["valider"])){
+    $login = htmlspecialchars(trim($_POST['login']));
+    $password = htmlspecialchars(trim($_POST['password']));
+    $passwordconfirm = htmlspecialchars(trim($_POST['passwordconfirm']));
+    $mssg = "";
+    
     $sessLogin = $_SESSION['user'][0]['login'];
     $sessId = $_SESSION['user'][0]['id'];
     $coment = htmlentities($_POST['com']);

@@ -8,7 +8,10 @@ if(isset($login)
 && !empty($password))
 {
 
-    
+    $login = htmlspecialchars(trim($_POST['login']));
+    $password = htmlspecialchars(trim($_POST['password']));
+    $passwordconfirm = htmlspecialchars(trim($_POST['passwordconfirm']));
+    $mssg = "";
     $requete_con = mysqli_query($bdd, "SELECT * FROM `utilisateurs` WHERE `login` = '$login'");
     $requete_confetch = mysqli_fetch_all($requete_con, MYSQLI_ASSOC);
 
@@ -67,7 +70,7 @@ if(isset($_POST["deco"]))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
 </head>
-<body class ="insBody">
+<body class ="conBody">
     <header></header>
     <main>
         <section class= "formulaire">
@@ -81,9 +84,7 @@ if(isset($_POST["deco"]))
                     </div>
                     <div class="form-group">
                     <button type="submit" name= "submit" class="btn ">Valider</button>
-                    <div class="form-group">
-                    <button type="submit" name= "deco" class="btn ">Deco</button>
-                </div> 
+                   
             </form>
         </section>
     </main>
