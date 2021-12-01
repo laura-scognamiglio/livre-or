@@ -1,5 +1,5 @@
 <?php
-
+// session_start();
 require('database.php');
 include('navbar.php');
 
@@ -8,10 +8,7 @@ $afficheCom2 = mysqli_query($bdd,"SELECT utilisateurs.login, commentaires.* FROM
 $afficheCom = mysqli_query($bdd,"SELECT * FROM `commentaires` ORDER BY `date` DESC");
 
 if(isset($_POST["valider"])){
-    $login = htmlspecialchars(trim($_POST['login']));
-    $password = htmlspecialchars(trim($_POST['password']));
-    $passwordconfirm = htmlspecialchars(trim($_POST['passwordconfirm']));
-    $mssg = "";
+    
     
     $sessLogin = $_SESSION['user'][0]['login'];
     $sessId = $_SESSION['user'][0]['id'];
@@ -27,7 +24,7 @@ if(isset($_POST["valider"])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class = "livHtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,33 +33,36 @@ if(isset($_POST["valider"])){
 </head>
 <body class="livrOrBody">
     <table class="tableau">
-<thead>
-    <tr>
-        <td>commentaire</td>
-        <td>date</td>
-        <td>login</td>
-    </tr>
-</thead>
+            <thead>
+                <!-- <tr>
+                    <th>commentaire</th>
+                    <th>date</th>
+                    <th>login</th>
+                </tr> -->
+            </thead>
 
-<?php foreach($afficheCom2 as $result): ?>
-    <tr>
-        <td><?=$result["commentaire"];?></td>
-        <td><?=$result["date"];?></td>
-        <td><?=$result["login"];?></td>
-       
-    </tr> 
-<?php endforeach;?>
-<?php if(isset($_SESSION['user'])){?>
-    <form action="livre-or.php" method="post">
-                     
-                <textarea class="com" name="com"
-                        rows="5" cols="33"></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" name= "valider" class="btn btn-primary btn-block">Valider</button>
-                </div>   
-            </form>
+        <?php foreach($afficheCom2 as $result): ?>
+            <tr>
+                <td><span>♣︎ posté par:</span> <?=$result["login"];?></td>
+                <td><span> le </span> <?=$result["date"];?></td>
+                <td> <?=$result["commentaire"];?></td>
             
-<?php } ?>
-
+            </tr> 
+        <?php endforeach;?>
+        <?php if(isset($_SESSION['user'])){?>
+            <section class="connect_form">
+            <h2 class= "sous-titre" >Livre d'or</h2>
+            <form action="livre-or.php" method="post" class="formcom">
+                            
+                        <textarea class="com" name="com"
+                                rows="5" cols="33"></textarea>
+                        
+                        <div class="form-group">
+                            <button type="submit" name= "valider" class="btn">Valider</button>
+                        </div>   
+            </form>
+            </section>        
+        <?php } ?>
+    </table>
+</body>
 </html>

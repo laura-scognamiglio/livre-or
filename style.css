@@ -1,40 +1,298 @@
 * {
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    box-sizing: border-box;
-    list-style: none;
-    
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  list-style: none;
+  
 }
 
 @font-face{
-    font-family: "Wagon-Bold" ;
-    src: url(assets/Wagon-Bold.otf) format('opentype');
+  font-family: "Wagon-Bold" ;
+  src: url(assets/Wagon-Bold.otf) format('opentype');
+  font-family: "PPNeueMontreal-Book";
+  src: url(assets/PPNeueMontreal-Book.otf) format('opentype');
+}
+::-webkit-scrollbar{
+  display: none;
+  scroll-behavior: smooth;
+}
+.profilBody, .conBody, .indexBody, .insBody, .livrOrBody, .profilBody{
+  background-color: #fa341a;
+  /* cursor: url("assets/coeur-blanc.png"), none; */
+}
+.indexHtml, .profHtml{
+  cursor: url("assets/coeur-blanc.png"), none;
+
+}
+.insHtml, .conHtml, .livHtml{
+cursor: url("assets/icons8-aimer-30.png"), none;
 }
 
-.profilBody, .conBody, .indexBody, .insBody, .livrOrBody, .profilBody{
-    scroll-behavior: smooth;
-    background-color: #fa341a;
+.indexBody{
+  display: flex;
+  
+}
+.indexSection{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 180px;
+}
+
+.conSection2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.headerstyle{
+  cursor: none;
+}
+
+
+.navbar{
+  display: flex;
+  width: 100%;
+  cursor: url("assets/icons8-aimer-30.png"), none;
 }
 
 .navul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    
-  }
+  margin: 0;
+  padding: 0;
+  cursor: url("assets/icons8-aimer-30.png"), none;
   
-  .navli {
-    float: left;
-  }
+}
 
-  .navbar li a {
-    display: block;
-    color: #353E28;
-    font-family: "neuneu";
-    font-size:15px;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+.navli {
+  display: flex;
+  cursor: url("assets/icons8-aimer-30.png"), none;
+  
+}
+
+.navbar li a {
+  color: black;
+  font-family: "PPNeueMontreal-Book";
+  font-size:15px;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor: url("assets/icons8-aimer-30.png"), none;
+}
+
+.navbar li a:hover {
+  color: whitesmoke;
+  transition: all 0.3s ease;
+  cursor: url("assets/icons8-aimer-30.png"), none;
+  
+}
+.title{
+  color: black;
+  font-family: "Wagon-Bold";
+  font-size: 13rem;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 40px;
+  text-align: end;
+  
+}
+
+label{
+  font-family: "PPNeueMontreal-Book";
+   font-size: 15px;
+}
+
+.title:hover{
+  cursor: url("assets/coeur-blanc.png"), none;
+  
+}
+
+.tlogo{
+  font-size: 4em;
+  cursor: url("assets/icons8-aimer-30.png"), none;
+}
+.tlogo:hover{
+  color: whitesmoke;
+  cursor: url("assets/icons8-aimer-30.png"), none;
+}
+
+.sous-titre{
+display: flex;
+justify-content: center;
+color: black;
+font-family: "Wagon-Bold";
+font-size: 180px;
+padding-left: 4px;
+cursor: url("assets/coeur-blanc.png"), none;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #aca49c;
+  font-size: 0.875em;
+}
+
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
+  color: #bbb5af;
+}
+
+
+
+.form {
+  position: relative;
+  width: 500px;
+  margin: 50px auto 100px auto;
+  cursor: url("assets/icons8-aimer-30.png"), none;
+  
+}
+
+.formcom{
+display: flex;
+flex-direction: column;
+align-items: center;
+display: flex;
+}
+
+/* .connect_form{
+  display: flex;
+flex-direction: column;
+align-items: center;
+} */
+
+
+input {
+  font-family: "PPNeueMontreal-Book";
+  font-size: 0.875em;
+  width: 470px;
+  height: 50px;
+  padding: 0px 15px 0px 15px;
+  
+  background: transparent;
+  outline: none;
+  color: black;
+  cursor: url("assets/icons8-aimer-30.png"), none;
+  
+  border: solid 1px black;
+  border-bottom: none;
+  
+}
+
+.form-control2{
+  border: solid 1px black;
+}
+
+input:hover {
+  background: transparent;
+  color: black;
+}
+
+textarea {
+  width: 470px;
+  max-width: 470px;
+  height: 110px;
+  max-height: 110px;
+  padding: 15px;
+  
+  background: transparent;
+  outline: none;
+  
+  color: black;
+  font-family: "PPNeueMontreal-Book";
+  font-size: 0.875em;
+  border: solid 1px black;
+  
+  display: flex;
+flex-direction: column;
+align-items: center;
+display: flex;
+
+}
+
+textarea:hover {
+  background: black;
+  color: whitesmoke;
+  border: solid 1px black;
+
+}
+
+.connect_form{
+display: flex;
+flex-direction: column;
+align-items: center;
+display: flex;
+}
+
+.btn {
+  width: 470px;
+  
+  padding-top: 2px;
+  
+  margin: 0px 0px 0px 0px;
+  
+  font-family: "Wagon-Bold";
+  font-size: 0.875em;
+  color: black;
+  
+  outline:none;
+  cursor: pointer;
+  
+  border: solid 1px black;
+  border-top: none;
+}
+
+.btn:hover {
+color: whitesmoke;
+background-color: black;
+cursor: pointer;
+}
+
+.libtndeco{
+  padding-left: 13px;
+}
+.deco{
+
+width: 20px;
+  padding-top: 2px;
+  margin: -5px 0px 0px 0px;
+  
+  font-family: "Wagon-Bold";
+  font-size: 0.875em;
+  color: whitesmoke;
+  background-color: black;
+  outline:none;
+  cursor: pointer;
+  
+  border: solid 1px black;
+  border-top: none;
+  
+}
+
+.libtndeco:hover{
+color: whitesmoke;
+
+cursor: pointer;
+}
+
+.tableau{
+display: flex;
+flex-direction: column;
+align-items: center;
+display: flex;
+
+}
+
+span{
+color: black;
+font-family: "PPNeueMontreal-Book";
+padding-left: 20px;
+cursor: url("assets/coeur-blanc.png"), none;
+}
+
+td{
+font-family: "Wagon-Bold";
+color: black;
+padding-top: 10px;
+padding-left: 20px;
+cursor: url("assets/coeur-blanc.png"), none;
 }

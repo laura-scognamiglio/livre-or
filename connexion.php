@@ -1,4 +1,5 @@
 <?php
+// session_start();
 require('database.php');
 include('navbar.php');
 
@@ -8,15 +9,13 @@ if(isset($login)
 && !empty($password))
 {
 
-    $login = htmlspecialchars(trim($_POST['login']));
-    $password = htmlspecialchars(trim($_POST['password']));
-    $passwordconfirm = htmlspecialchars(trim($_POST['passwordconfirm']));
-    $mssg = "";
+    
     $requete_con = mysqli_query($bdd, "SELECT * FROM `utilisateurs` WHERE `login` = '$login'");
     $requete_confetch = mysqli_fetch_all($requete_con, MYSQLI_ASSOC);
 
-    // if(isset($_POST["submit"]))
-    // {
+    if(isset($_POST["submit"]))
+    {
+        
         
         if(count($requete_confetch) != 0)
         {
@@ -38,10 +37,9 @@ if(isset($login)
 echo '<pre>';
 var_dump($_SESSION);
 echo '</pre>';
-    // }
+    }
 }
 if(isset($_POST['submit'])){
-    
     if(empty($login)){
         $mssg = "empty login";
         echo $mssg;
@@ -57,25 +55,26 @@ if(isset($_POST['submit'])){
 if(isset($_POST["deco"]))
     {
         session_destroy();
-    
+        header('Refresh:0');
+        header('Location:index.php');
     }
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="conHtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
+    <title>🖤Connexion</title>
 </head>
 <body class ="conBody">
-    <header></header>
     <main>
-        <section class= "formulaire">
+        <section class= "conSection2">
+        <!-- <section class= "formulaire"> -->
             <form class= "form" action= "connexion.php" method= "post">
-                <h2 class= "title" >Connexion</h2>
+                <h2 class= "sous-titre" >Connexion</h2>
                     <div class= "form-group">
                         <input type= "text" name= "login" placeholder= "login" autocomplete= "off">
                     </div>
@@ -84,8 +83,9 @@ if(isset($_POST["deco"]))
                     </div>
                     <div class="form-group">
                     <button type="submit" name= "submit" class="btn ">Valider</button>
-                   
+                    </div>
             </form>
+        <!-- </section> -->
         </section>
     </main>
     

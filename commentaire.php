@@ -1,27 +1,26 @@
 <?php
+// session_start();
+
 require('database.php');
 include('navbar.php');
 
+
 $sessLogin = $_SESSION['user'][0]['login'];
 
-
-
-
-if(isset($_POST['valider'])){
-    $login = htmlspecialchars(trim($_POST['login']));
-    $password = htmlspecialchars(trim($_POST['password']));
-    $passwordconfirm = htmlspecialchars(trim($_POST['passwordconfirm']));
-    $mssg = "";
-
-    $sessId = $_SESSION['user'][0]['id'];
+if(isset($_POST['valider']))
+{
+    
+$sessId = $_SESSION['user'][0]['id'];
     $coment = htmlentities($_POST['com']);
     $date = date("Y-m-d H:i:s");
+    
 
     echo '<pre>';
     var_dump($date);
     echo '</pre>'; 
    
     $addCom = mysqli_query($bdd, "INSERT INTO `commentaires`( `commentaire`, `id_utilisateurs`, `date`) VALUES ('$coment','$sessId','$date')");
+    header('Refresh:0');
     
     echo '<pre>';
     var_dump($sessId);
@@ -43,19 +42,20 @@ if(isset($_POST['valider'])){
 <body class="profilBody">
     <main>
     <section class= connect_form>
-        <form action="commentaire.php" method="post">
-                <h2 class="text-center">Profil de <?php echo $sessLogin ?> </h2>       
-                <div class="form-group-profil">
+        
+        <h2 class="sous-titre">Hey <?php echo $sessLogin ?> ! </h2>       
+            <form action="commentaire.php" method="post">
+                <div class="form-group">
                      <label for="story">Lache ton com:</label>
                 </div>
+                <div class="form-group">
                 <textarea class="com" name="com"
                         rows="5" cols="33"></textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" name= "valider" class="btn btn-primary btn-block">Valider</button>
+                    <button type="submit" name= "valider" class="btn val">Valider</button>
                 </div>   
             </form>
-        </div>
         </section>
     </main>
 </body>
